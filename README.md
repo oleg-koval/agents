@@ -15,6 +15,7 @@ Reusable agent roles and delivery pipelines for repositories owned by Oleg Koval
 | [olko-qa](roles/olko-qa.md) | Verify behavior independently |
 | [olko-security](roles/olko-security.md) | Assess exploitable risks and privacy boundaries |
 | [olko-growth](roles/olko-growth.md) | Test a measurable path to adoption |
+| [olko-chief-of-staff](roles/olko-chief-of-staff.md) | Turn current evidence into one ranked next action while preserving founder control |
 
 ## Pipelines
 
