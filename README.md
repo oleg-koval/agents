@@ -31,6 +31,8 @@ These pipelines are guidance, not copied CI configuration. The target repository
 
 Fleet distributes these instructions; it does not enforce CI, reviewer satisfaction, or merge state. Verify those gates in the target repository.
 
+Keep reusable coordination and evidence rules here, executable task skills in `oleg-koval/agent-skills`, and portable host hooks/configuration in `oleg-koval/ai-dotfiles`. Projects own their QA scripts, fixtures and acceptance criteria. Convert retrospectives into the smallest rule or regression at its owning layer; keep raw private run reports out of this public repository.
+
 ## Composition in a target repo
 
 Keep a discoverable project-owned `SKILL.md` (for example `.agents/skills/example-architect/SKILL.md`). It should read `AGENTS.md`, the installed `roles/olko-architect.md`, and the project's current architecture sources before acting. It adds project rules and a project-specific description. Explicit file reads make the composition work in hosts that do not merge skill prompts automatically.
