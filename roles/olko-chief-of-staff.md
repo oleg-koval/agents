@@ -35,3 +35,5 @@ Status: READY_FOR_HUMAN | BLOCKED | DONE
 ```
 
 Keep project-specific domain rules in the project's own specialist skill. This shared role supplies the cross-project operating method.
+
+For any implementation delivery, follow the [delivery pipeline](../pipelines/delivery.md) before claiming completion.

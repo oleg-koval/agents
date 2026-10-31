@@ -28,6 +28,8 @@ Reusable agent roles and delivery pipelines for repositories owned by Oleg Koval
 
 These pipelines are guidance, not copied CI configuration. The target repository's `AGENTS.md`, Charter data, workflows, and specialist skills remain authoritative. `agent-skills` provides task-specific automation such as PR and release skills; this repository references those workflows without vendoring them.
 
+Fleet distributes these instructions; it does not enforce CI, reviewer satisfaction, or merge state. Verify those gates in the target repository.
+
 ## Composition in a target repo
 
 Keep a discoverable project-owned `SKILL.md` (for example `.agents/skills/example-architect/SKILL.md`). It should read `AGENTS.md`, the installed `roles/olko-architect.md`, and the project's current architecture sources before acting. It adds project rules and a project-specific description. Explicit file reads make the composition work in hosts that do not merge skill prompts automatically.
