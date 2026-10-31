@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 
-const roles = ['team', 'product', 'architect', 'engineer', 'qa', 'security', 'growth'];
+const roles = ['team', 'product', 'architect', 'engineer', 'qa', 'apple-review', 'chief-of-staff', 'security', 'growth'];
 const pipelines = ['delivery', 'charter', 'review', 'release'];
 const files = [
   'README.md',

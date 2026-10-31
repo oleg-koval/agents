@@ -7,3 +7,5 @@
 5. Report commit, remote head, CI, deployment, live acceptance, rollback readiness, and remaining issues separately.
 
 This pipeline does not replace project-specific release instructions, staging order, or device acceptance requirements.
+
+For Apple app work, all leads (including project-specific CSO and CTO agents) must consult [Apple Review](../roles/olko-apple-review.md) before allocating feature tasks and after completion. Require PLAN_APPROVED before allocation and FEATURE_APPROVED before feature closure; require SUBMISSION_READY for the complete candidate before submission handoff. CHANGES_REQUIRED or BLOCKED requires an owned cleanup round and independent re-review; never substitute green tests or a lead self-approval. See the role for evidence and approval invalidation rules.

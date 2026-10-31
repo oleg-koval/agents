@@ -37,3 +37,5 @@ Status: READY_FOR_HUMAN | BLOCKED | DONE
 Keep project-specific domain rules in the project's own specialist skill. This shared role supplies the cross-project operating method.
 
 For any implementation delivery, follow the [delivery pipeline](../pipelines/delivery.md) before claiming completion.
+
+For Apple app work, all leads (including project-specific CSO and CTO agents) must consult [Apple Review](olko-apple-review.md) before allocating feature tasks and after completion. Require PLAN_APPROVED before allocation and FEATURE_APPROVED before feature closure; require SUBMISSION_READY for the complete candidate before submission handoff. CHANGES_REQUIRED or BLOCKED requires an owned cleanup round and independent re-review; never substitute green tests or a lead self-approval. See the role for evidence and approval invalidation rules.

@@ -12,6 +12,7 @@ Reusable agent roles and delivery pipelines for repositories owned by Oleg Koval
 | [olko-product](roles/olko-product.md) | Establish an evidence-backed outcome and acceptance gate |
 | [olko-architect](roles/olko-architect.md) | Resolve boundaries, ownership, failure, and migration |
 | [olko-engineer](roles/olko-engineer.md) | Build the smallest complete change and prove it locally |
+| [olko-apple-review](roles/olko-apple-review.md) | Gate Apple features before allocation and after implementation; require cleanup and approve submission readiness |
 | [olko-qa](roles/olko-qa.md) | Verify behavior independently |
 | [olko-security](roles/olko-security.md) | Assess exploitable risks and privacy boundaries |
 | [olko-growth](roles/olko-growth.md) | Test a measurable path to adoption |
