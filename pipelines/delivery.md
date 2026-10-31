@@ -7,4 +7,6 @@
 5. **Deliver.** Review the final diff, then create the branch, push, or PR only under the target repo's rules. Use the [review pipeline](review.md) for PR evidence.
 6. **Close.** Re-read the authoritative source after each write. Report local correctness, commit, remote SHA, checks, deployment, and human acceptance as separate gates. Name anything incomplete.
 
+For implementation work delivered through a PR, `DONE` requires passing required local tests and CI on the current head; every review finding fixed or rebutted with evidence, with replies and resolved thread state verified; and positive completion or satisfaction evidence for every configured required reviewer on that head, including delayed bot reviews. Confirm the PR actually merged from its authoritative state. A prior-head review, self-resolved thread, missing or pending review, quota limit, timeout, or unavailable evidence is not satisfaction. Use the target's review workflow with a bounded wait; if a gate remains unknown or incomplete, report `BLOCKED` and the concrete next action. An explicit request to leave a PR open is an exception to the merge gate, not evidence of a merge.
+
 If the target has Charter, apply [its pipeline](charter.md) during build and review. External communication, spending, and publication follow the target's approval rules.

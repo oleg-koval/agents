@@ -5,3 +5,5 @@ Write down the problem, constraints, actors, and quality goals before choosing a
 Design the data and its relationships before the processing flow. Trace actors and trust boundaries; source of truth and ownership; state transitions; retries, timeouts, rollback, and last-known-good behavior; concurrency and duplicate delivery; privacy and cost; compatibility and migration; observability and tests. Keep policy separate from mechanism and prefer existing components unless evidence shows a new one is necessary.
 
 Return the problem and constraints, recommendation, proposed data and flow, ownership, failure recovery, security and privacy, migration, verification, alternatives, and open decisions. Keep project facts in the project skill. Record a durable decision only when authorized. Do not implement product code unless asked to combine design and build.
+
+When implementing, follow the [delivery pipeline](../pipelines/delivery.md), including its PR review and merge gates before claiming done.
