@@ -12,6 +12,7 @@ Reusable agent roles and delivery pipelines for repositories owned by Oleg Koval
 | [olko-product](roles/olko-product.md) | Establish an evidence-backed outcome and acceptance gate |
 | [olko-architect](roles/olko-architect.md) | Resolve boundaries, ownership, failure, and migration |
 | [olko-engineer](roles/olko-engineer.md) | Build the smallest complete change and prove it locally |
+| [olko-devops](roles/olko-devops.md) | Own CI/CD, infrastructure, deployment verification, rollback and observability |
 | [olko-apple-review](roles/olko-apple-review.md) | Gate Apple features before allocation and after implementation; require cleanup and approve submission readiness |
 | [olko-qa](roles/olko-qa.md) | Verify behavior independently |
 | [olko-security](roles/olko-security.md) | Assess exploitable risks and privacy boundaries |
@@ -34,6 +35,37 @@ Fleet distributes these instructions; it does not enforce CI, reviewer satisfact
 Keep reusable coordination and evidence rules here, executable task skills in `oleg-koval/agent-skills`, and portable host hooks/configuration in `oleg-koval/ai-dotfiles`. Projects own their QA scripts, fixtures and acceptance criteria. Convert retrospectives into the smallest rule or regression at its owning layer; keep raw private run reports out of this public repository.
 
 ## Composition in a target repo
+
+### Native Codex agents
+
+Generate standalone TOML from the shared Markdown sources with Node.js 22+. No Claude runtime or skillshare conversion is required. Codex discovers personal agents in `~/.codex/agents/` and project agents in `.codex/agents/`, using `name`, `description`, and `developer_instructions` ([official configuration reference](https://learn.chatgpt.com/docs/agent-configuration/subagents)). Model settings are omitted so the parent session's Codex-compatible model is inherited.
+
+From this checkout, choose one destination:
+
+```sh
+# Preview personal installation, then install (respects CODEX_HOME).
+node scripts/codex-agents.mjs --global --dry-run
+node scripts/codex-agents.mjs --global
+
+# Or install into an explicitly selected target project.
+node scripts/codex-agents.mjs --project /path/to/project --dry-run
+node scripts/codex-agents.mjs --project /path/to/project
+
+# Generate a reviewable artifact without installing it into Codex.
+node scripts/codex-agents.mjs --output ./generated-agents
+```
+
+Start a fresh Codex session in the target project after installation. Request a role by name, for example “Use olko-devops to inspect CI failures.” Native discovery exposes role names and descriptions; it does not automatically authorize delegation or require every role to run. No per-task shared-file read instruction or `config.toml` registration is needed.
+
+Each agent bundles its primary role and the transitive closure of linked roles and pipelines. Links become internal section references, so moving the files or removing this checkout does not break them. The target project's current `AGENTS.md` and nested instructions take precedence. Project-specific workflows and specialist skills must still be available in the target environment.
+
+Rerun the same command after updating shared sources. Unchanged files are left alone; intact installer-owned files update using a content digest. Foreign files, edited generated files, symlinked files and symlinked destination directories cause a conflict before writes begin. Preserve or relocate the conflicting file yourself and rerun; there is no force-overwrite mode. Unrelated and stale files are never removed. Avoid concurrent installers or editors during installation. Dry-run performs the same generation and conflict checks without creating directories or files. Generated TOML is an artifact; edit Markdown sources rather than maintaining parallel prompts. Do not commit personal installation directories.
+
+Validate with `node scripts/validate.mjs` and `node --test scripts/codex-agents.test.mjs` (tests require Python 3.11+ for an independent standard-library TOML parser). Installation and valid TOML are separate from actual discovery: on compatible CLIs, `codex debug prompt-input` can inspect the fresh model-visible input without launching a model task. Verify the role names in that input; `codex agents` lists sessions, not the custom-role catalog. The adapter was checked against Codex CLI 0.166.0; older hosts may need an update.
+
+See [role coverage](docs/role-coverage.md) for the concise installed-collection comparison and why only DevOps was added.
+
+### Project skill composition
 
 Keep a discoverable project-owned `SKILL.md` (for example `.agents/skills/example-architect/SKILL.md`). It should read `AGENTS.md`, the installed `roles/olko-architect.md`, and the project's current architecture sources before acting. It adds project rules and a project-specific description. Explicit file reads make the composition work in hosts that do not merge skill prompts automatically.
 
