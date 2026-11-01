@@ -1,6 +1,6 @@
 # Delivery pipeline
 
-1. **Frame.** Product names the actor, observed problem, outcome, evidence, and acceptance checks. A user-approved outcome can proceed with stated uncertainty.
+1. **Frame.** Product names the actor, observed problem, outcome, evidence, and acceptance checks. A user-approved outcome can proceed with stated uncertainty. Before assigning work, read the target's current `AGENTS.md` and applicable Charter files; record the repository, worktree, branch, HEAD, and pre-existing dirty paths to establish the task baseline.
 2. **Design when needed.** Architect resolves ownership, boundaries, failure paths, and compatibility before implementation.
 3. **Build.** Engineer uses an isolated workspace and changes the smallest complete slice. Preserve unrelated work.
 4. **Prove.** Inspect target-repo check commands and the scripts, setup steps, and hooks they invoke before execution. Run untrusted checks only in a disposable environment without credentials or sensitive filesystem, host, or network access; do not forward host secrets or environment. If isolation is unavailable, report the check as blocked. QA independently checks the behavior and the exact artifact. Add Security when trust, privacy, or supply chain changes materially.
