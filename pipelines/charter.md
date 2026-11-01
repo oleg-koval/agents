@@ -1,5 +1,20 @@
 # Charter pipeline
 
+## Ownership
+
+This ownership map applies to shared pre-PR requirements in every repository;
+the configured Charter workflow below has a narrower scope. The shared ownership
+lesson is [ledger note n110](https://github.com/oleg-koval/shared-agent-knowledge/blob/main/ledger.json).
+
+- [Charter](https://github.com/oleg-koval/charter) owns the canonical [Engineering Testament rules](https://github.com/oleg-koval/charter/blob/main/.charter/rules.toml) and their validation tools.
+- [Agents](https://github.com/oleg-koval/agents) owns shared agent instructions, including judgment and evidence requirements in the [delivery pipeline](delivery.md).
+- [Fleet](https://github.com/oleg-koval/fleet) owns [distribution](https://github.com/oleg-koval/fleet/blob/main/src/agents.ts) of shared agent content and integration with its own [API PR creator and updater](https://github.com/oleg-koval/fleet/blob/main/src/files.ts).
+- [ai-dotfiles](https://github.com/oleg-koval/ai-dotfiles) owns the portable [delivery controller](https://github.com/oleg-koval/ai-dotfiles/blob/main/codex/files/scripts/delivery-controller.py) and its host PR creation integration.
+
+Change each policy or integration at its upstream owner, not in Fleet-managed copies. Ownership does not prove a version is installed, distributed, or enforcing a check: verify the target's current sources and creation path. Direct UI, API, or CLI paths can bypass a local creator guard.
+
+## Configured Charter workflow
+
 This pipeline applies only when the target repository has `.charter/rules.toml` and `.charter/checks.toml`. The target files are the contract; this document does not copy their rules. Charter's CLI and command behavior belong to the `oleg-koval/charter` project.
 
 Before invoking Charter or any repository-declared check, inspect the effective commands and the repository-controlled scripts, setup steps, and hooks they invoke. Treat contributor-controlled commands as untrusted. Run untrusted checks only in a disposable environment without credentials, host mounts or sockets, SSH agents, or sensitive filesystem and network access. Do not forward the host environment or secrets into it. If suitable isolation is unavailable, report the check as blocked instead of running it with sensitive access.
